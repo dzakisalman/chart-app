@@ -20,4 +20,4 @@ extension ColorExtension on Color {
       blue ?? this.blue,
     );
   }
-} 
+}

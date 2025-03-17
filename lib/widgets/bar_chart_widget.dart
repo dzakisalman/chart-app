@@ -1,13 +1,17 @@
 import 'dart:async';
 import 'dart:math';
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+
 import '../resources/app_colors.dart';
 import '../util/extensions/color_extensions.dart';
 
 class BarChartWidget extends StatefulWidget {
   BarChartWidget({super.key}) {
-    barBackgroundColor = AppColors.contentColorWhite.darken().withValues(alpha: 77);
+    barBackgroundColor = AppColors.contentColorWhite.darken().withValues(
+      alpha: 77,
+    );
   }
 
   final List<Color> availableColors = const <Color>[
@@ -84,7 +88,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
                 },
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -119,25 +123,25 @@ class _BarChartWidgetState extends State<BarChartWidget> {
   }
 
   List<BarChartGroupData> showingGroups() => List.generate(7, (i) {
-        switch (i) {
-          case 0:
-            return makeGroupData(0, 5, isTouched: i == touchedIndex);
-          case 1:
-            return makeGroupData(1, 6.5, isTouched: i == touchedIndex);
-          case 2:
-            return makeGroupData(2, 5, isTouched: i == touchedIndex);
-          case 3:
-            return makeGroupData(3, 7.5, isTouched: i == touchedIndex);
-          case 4:
-            return makeGroupData(4, 9, isTouched: i == touchedIndex);
-          case 5:
-            return makeGroupData(5, 11.5, isTouched: i == touchedIndex);
-          case 6:
-            return makeGroupData(6, 6.5, isTouched: i == touchedIndex);
-          default:
-            return throw Error();
-        }
-      });
+    switch (i) {
+      case 0:
+        return makeGroupData(0, 5, isTouched: i == touchedIndex);
+      case 1:
+        return makeGroupData(1, 6.5, isTouched: i == touchedIndex);
+      case 2:
+        return makeGroupData(2, 5, isTouched: i == touchedIndex);
+      case 3:
+        return makeGroupData(3, 7.5, isTouched: i == touchedIndex);
+      case 4:
+        return makeGroupData(4, 9, isTouched: i == touchedIndex);
+      case 5:
+        return makeGroupData(5, 11.5, isTouched: i == touchedIndex);
+      case 6:
+        return makeGroupData(6, 6.5, isTouched: i == touchedIndex);
+      default:
+        return throw Error();
+    }
+  });
 
   BarChartData mainBarData() {
     return BarChartData(
@@ -210,9 +214,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
         rightTitles: const AxisTitles(
           sideTitles: SideTitles(showTitles: false),
         ),
-        topTitles: const AxisTitles(
-          sideTitles: SideTitles(showTitles: false),
-        ),
+        topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
         bottomTitles: AxisTitles(
           sideTitles: SideTitles(
             showTitles: true,
@@ -228,9 +230,7 @@ class _BarChartWidgetState extends State<BarChartWidget> {
           ),
         ),
       ),
-      borderData: FlBorderData(
-        show: false,
-      ),
+      borderData: FlBorderData(show: false),
       barGroups: showingGroups(),
       gridData: const FlGridData(
         show: true,
@@ -273,18 +273,12 @@ class _BarChartWidgetState extends State<BarChartWidget> {
         text = const Text('', style: style);
         break;
     }
-    return SideTitleWidget(
-      axisSide: meta.axisSide,
-      space: 16,
-      child: text,
-    );
+    return SideTitleWidget(axisSide: meta.axisSide, space: 16, child: text);
   }
 
   BarChartData randomData() {
     return BarChartData(
-      barTouchData: BarTouchData(
-        enabled: false,
-      ),
+      barTouchData: BarTouchData(enabled: false),
       titlesData: FlTitlesData(
         show: true,
         bottomTitles: AxisTitles(
@@ -301,70 +295,76 @@ class _BarChartWidgetState extends State<BarChartWidget> {
             reservedSize: 30,
           ),
         ),
-        topTitles: const AxisTitles(
-          sideTitles: SideTitles(
-            showTitles: false,
-          ),
-        ),
+        topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
         rightTitles: const AxisTitles(
-          sideTitles: SideTitles(
-            showTitles: false,
-          ),
+          sideTitles: SideTitles(showTitles: false),
         ),
       ),
-      borderData: FlBorderData(
-        show: false,
-      ),
+      borderData: FlBorderData(show: false),
       barGroups: List.generate(7, (i) {
         switch (i) {
           case 0:
             return makeGroupData(
               0,
               Random().nextInt(15).toDouble() + 6,
-              barColor: widget.availableColors[
-                  Random().nextInt(widget.availableColors.length)],
+              barColor:
+                  widget.availableColors[Random().nextInt(
+                    widget.availableColors.length,
+                  )],
             );
           case 1:
             return makeGroupData(
               1,
               Random().nextInt(15).toDouble() + 6,
-              barColor: widget.availableColors[
-                  Random().nextInt(widget.availableColors.length)],
+              barColor:
+                  widget.availableColors[Random().nextInt(
+                    widget.availableColors.length,
+                  )],
             );
           case 2:
             return makeGroupData(
               2,
               Random().nextInt(15).toDouble() + 6,
-              barColor: widget.availableColors[
-                  Random().nextInt(widget.availableColors.length)],
+              barColor:
+                  widget.availableColors[Random().nextInt(
+                    widget.availableColors.length,
+                  )],
             );
           case 3:
             return makeGroupData(
               3,
               Random().nextInt(15).toDouble() + 6,
-              barColor: widget.availableColors[
-                  Random().nextInt(widget.availableColors.length)],
+              barColor:
+                  widget.availableColors[Random().nextInt(
+                    widget.availableColors.length,
+                  )],
             );
           case 4:
             return makeGroupData(
               4,
               Random().nextInt(15).toDouble() + 6,
-              barColor: widget.availableColors[
-                  Random().nextInt(widget.availableColors.length)],
+              barColor:
+                  widget.availableColors[Random().nextInt(
+                    widget.availableColors.length,
+                  )],
             );
           case 5:
             return makeGroupData(
               5,
               Random().nextInt(15).toDouble() + 6,
-              barColor: widget.availableColors[
-                  Random().nextInt(widget.availableColors.length)],
+              barColor:
+                  widget.availableColors[Random().nextInt(
+                    widget.availableColors.length,
+                  )],
             );
           case 6:
             return makeGroupData(
               6,
               Random().nextInt(15).toDouble() + 6,
-              barColor: widget.availableColors[
-                  Random().nextInt(widget.availableColors.length)],
+              barColor:
+                  widget.availableColors[Random().nextInt(
+                    widget.availableColors.length,
+                  )],
             );
           default:
             return throw Error();
@@ -387,4 +387,4 @@ class _BarChartWidgetState extends State<BarChartWidget> {
       await refreshState();
     }
   }
-} 
+}

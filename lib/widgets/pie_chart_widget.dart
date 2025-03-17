@@ -39,10 +39,16 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                     if (event is FlTapUpEvent) {
                       if (pieTouchResponse?.touchedSection != null) {
                         // Jika section yang sama ditekan lagi, reset touchedIndex
-                        if (touchedIndex == pieTouchResponse!.touchedSection!.touchedSectionIndex) {
+                        if (touchedIndex ==
+                            pieTouchResponse!
+                                .touchedSection!
+                                .touchedSectionIndex) {
                           touchedIndex = -1;
                         } else {
-                          touchedIndex = pieTouchResponse.touchedSection!.touchedSectionIndex;
+                          touchedIndex =
+                              pieTouchResponse
+                                  .touchedSection!
+                                  .touchedSectionIndex;
                         }
                       }
                     }
@@ -168,7 +174,7 @@ class Indicator extends StatelessWidget {
         Text(
           text,
           style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-        )
+        ),
       ],
     );
   }

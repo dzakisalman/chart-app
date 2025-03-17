@@ -14,4 +14,4 @@ class AppColors {
   static const Color mainTextColor1 = Colors.white;
   static const Color mainTextColor2 = Colors.black87;
   static const Color mainTextColor3 = Colors.blueGrey;
-} 
+}

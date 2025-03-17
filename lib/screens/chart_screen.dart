@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/line_chart_widget.dart';
+
 import '../widgets/bar_chart_widget.dart';
+import '../widgets/line_chart_widget.dart';
 import '../widgets/pie_chart_widget.dart';
 
 class ChartScreen extends StatefulWidget {
@@ -25,7 +26,10 @@ class _ChartScreenState extends State<ChartScreen> {
               value: _selectedChart,
               dropdownColor: Theme.of(context).colorScheme.surface,
               items: const [
-                DropdownMenuItem(value: 'Line Chart', child: Text('Line Chart')),
+                DropdownMenuItem(
+                  value: 'Line Chart',
+                  child: Text('Line Chart'),
+                ),
                 DropdownMenuItem(value: 'Bar Chart', child: Text('Bar Chart')),
                 DropdownMenuItem(value: 'Pie Chart', child: Text('Pie Chart')),
               ],
@@ -78,4 +82,4 @@ class _ChartScreenState extends State<ChartScreen> {
         return const SizedBox.shrink();
     }
   }
-} 
+}
